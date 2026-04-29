@@ -1,7 +1,7 @@
 {
   "name": "gist-writer",
-  "version": "1.0.0",
-  "description": "Write content to GitHub gists (public or private) via the gh CLI.",
+  "version": "1.1.0",
+  "description": "Publish content to GitHub gists with clear AI authorship — Claude-authored solution gists and collaborative debug write-ups, both with model+date attribution, environment context, and a PII pre-flight scrub for public publishes. Visibility is a per-call parameter with a configurable default.",
   "author": {
     "name": "Daniel Rosehill",
     "url": "https://github.com/danielrosehill"
