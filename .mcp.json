@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "github-gist": {
+      "command": "npx",
+      "args": ["-y", "github-gist-mcp-minimal"],
+      "env": {
+        "GITHUB_TOKEN": "${GITHUB_TOKEN}"
+      }
+    }
+  }
+}
