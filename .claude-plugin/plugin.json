@@ -1,0 +1,12 @@
+{
+  "name": "gist-writer",
+  "version": "1.0.0",
+  "description": "Write content to GitHub gists (public or private) via the gh CLI.",
+  "author": {
+    "name": "Daniel Rosehill",
+    "url": "https://github.com/danielrosehill"
+  },
+  "repository": "https://github.com/danielrosehill/Claude-Gist-Writer-Plugin",
+  "license": "MIT",
+  "keywords": ["github", "gist", "gh-cli"]
+}
