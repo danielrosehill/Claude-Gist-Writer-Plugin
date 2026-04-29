@@ -27,7 +27,7 @@ The shipped configure-prompt default is `public`, but the safe fallback when not
 ## Requirements
 
 - `gh` CLI installed and authenticated (`gh auth status`), **or**
-- `GITHUB_TOKEN` environment variable set (PAT with `gist` scope) for the bundled MCP server.
+- `GITHUB_TOKEN` available to Claude Code's environment (PAT with `gist` scope) for the bundled MCP server. The `configure` skill will write this to `$CLAUDE_USER_DATA/gist-writer/.env` (chmod 600) and offer to auto-source it from your shell rc.
 
 ## Bundled MCP
 

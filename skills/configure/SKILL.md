@@ -52,7 +52,37 @@ How the model name appears in the AI-authored banner.
 4. Write the file with `chmod 600` (no secrets, but it's user-scoped).
 5. Confirm the path: "Wrote `$DATA_ROOT/config.json`."
 
+## GITHUB_TOKEN — write a `.env`
+
+The bundled `github-gist` MCP needs `GITHUB_TOKEN` (PAT with `gist` scope). Rather than asking the user to manage shell rc exports, write it to a per-plugin `.env`:
+
+1. Prompt for the token (or accept an `op://` reference if 1Password is available).
+2. Write it to `$DATA_ROOT/.env`:
+   ```
+   GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
+   ```
+3. `chmod 600 "$DATA_ROOT/.env"`.
+4. Tell the user how to make Claude Code see it. The `.mcp.json` `${GITHUB_TOKEN}` interpolation reads from the shell environment Claude Code was launched in, so the user needs **one** of:
+
+   **Option A — auto-source in shell rc** (recommended for daily use):
+   ```bash
+   # Append to ~/.bashrc or ~/.zshrc
+   set -a; [ -f "$HOME/.local/share/claude-plugins/gist-writer/.env" ] && . "$HOME/.local/share/claude-plugins/gist-writer/.env"; set +a
+   ```
+   (Use the actual `$DATA_ROOT` path resolved above.)
+
+   **Option B — wrap the launch** (if the user prefers not to pollute global env):
+   ```bash
+   set -a; source "$DATA_ROOT/.env"; set +a; claude
+   ```
+
+   Offer to append Option A to the user's shell rc with their confirmation. Don't do it silently.
+
+5. Confirm: "Wrote token to `$DATA_ROOT/.env`. Restart your shell (or `source` the file) before the next Claude Code session."
+
+If the user already has `GITHUB_TOKEN` set in their environment, skip the .env write and just note that the existing value will be used.
+
 ## Notes
 
-- This file holds **no secrets**. The `GITHUB_TOKEN` for the bundled MCP comes from the environment, not from here.
-- Re-running this skill is safe — it merges over existing values.
+- `config.json` holds no secrets. `.env` holds the token only.
+- Re-running this skill is safe — it merges over existing values for the JSON config and rewrites the `.env` if the token changed.
