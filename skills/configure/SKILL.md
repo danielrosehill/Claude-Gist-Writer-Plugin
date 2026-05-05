@@ -59,7 +59,7 @@ The bundled `github-gist` MCP needs `GITHUB_TOKEN` (PAT with `gist` scope). Rath
 1. Prompt for the token (or accept an `op://` reference if 1Password is available).
 2. Write it to `$DATA_ROOT/.env`:
    ```
-   GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
+   GITHUB_TOKEN=<your-github-pat-with-gist-scope>
    ```
 3. `chmod 600 "$DATA_ROOT/.env"`.
 4. Tell the user how to make Claude Code see it. The `.mcp.json` `${GITHUB_TOKEN}` interpolation reads from the shell environment Claude Code was launched in, so the user needs **one** of:
