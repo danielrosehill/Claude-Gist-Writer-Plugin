@@ -48,7 +48,7 @@ Render the block as a markdown table or fenced block — whichever reads cleaner
    - Any pasted error messages that leak environment specifics not relevant to the bug.
    Apply accepted redactions; abort on 🔴 BLOCKING findings.
 5. **Show the rendered gist** for final review.
-6. **Publish** via the bundled `github-gist` MCP (`create_public_gist` / `create_private_gist`), or fall back to `gh gist create`.
+6. **Publish** with `gh gist create` (add `--public` for a public gist).
 7. **Report the URL.** Offer to copy to clipboard.
 
 ## Format guidance for the body

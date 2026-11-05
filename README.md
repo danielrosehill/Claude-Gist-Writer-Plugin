@@ -26,12 +26,7 @@ The shipped configure-prompt default is `public`, but the safe fallback when not
 
 ## Requirements
 
-- `gh` CLI installed and authenticated (`gh auth status`), **or**
-- `GITHUB_TOKEN` available to Claude Code's environment (PAT with `gist` scope) for the bundled MCP server. The `configure` skill will write this to `$CLAUDE_USER_DATA/gist-writer/.env` (chmod 600) and offer to auto-source it from your shell rc.
-
-## Bundled MCP
-
-This plugin bundles [github-gist-mcp-minimal](https://github.com/danielrosehill/Github-Gist-MCP-Minimal) — 4 tools (create-private / create-public / update / delete) to keep context overhead low. Set `GITHUB_TOKEN` (PAT with `gist` scope) before invoking the publish skills.
+- `gh` CLI installed and authenticated (`gh auth status`), with the `gist` scope.
 
 ## Installation
 

@@ -27,7 +27,7 @@ For collaborative debugging, use `debug-writeup-gist` instead.
 2. **Environment block** — keep brief. Only include what's actually load-bearing for the solution (e.g. "Ubuntu 25.10, Python 3.12"). If the solution is environment-agnostic, write `Environment-agnostic.` and move on.
 3. **If `visibility=public`**, invoke `scrub-pii` on the rendered content. Do not proceed past a 🔴 BLOCKING finding without explicit user override. Apply 🟡 redactions the user accepts.
 4. **Show the rendered gist to the user** (file path or inline) and confirm. Last chance to edit before publish.
-5. **Publish.** Prefer the bundled MCP (`github-gist` server, tools `create_public_gist` / `create_private_gist`). If the MCP is unavailable, fall back to:
+5. **Publish** with `gh`:
    ```bash
    gh gist create -d "<short description>" /tmp/<slug>.md         # private
    gh gist create -d "<short description>" --public /tmp/<slug>.md # public
@@ -53,4 +53,3 @@ For collaborative debugging, use `debug-writeup-gist` instead.
 - Don't dress this up as the user's own writeup — the AI-attribution banner is non-negotiable.
 - Don't auto-publish public gists without confirmation.
 - Don't include the user's full path / hostname / private repo references in the body. The scrub-pii pre-flight is there for this; don't bypass it on public publishes.
-- Don't append a verification suffix to the body — the bundled MCP already handles its own; double-stamping looks spammy.
